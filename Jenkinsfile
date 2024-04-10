@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Deploy Containers') {
             steps {
-                docker run -d -p 80:80 --name my-frontend my-frontend-image
+                sh 'sudo -S docker run -d -p 80:80 --name my-frontend my-frontend-image"
             }
         }
     }
