@@ -5,12 +5,12 @@ pipeline {
   
         stage('Build Docker Images') {
             steps {
-                sh 'sudo docker build -t my-frontend-image ./frontend'  // Replace with your frontend directory path
+                sh 'sudo -S docker build -t my-frontend-image ./frontend'  // Replace with your frontend directory path
             }
         }
         stage('Deploy Containers') {
             steps {
-                sh 'sudo docker run -d --name my-frontend my-frontend-image'
+                sh 'sudo -S docker run -d --name my-frontend my-frontend-image'
             }
         }
     }
