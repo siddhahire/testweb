@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
-url = "file:////var/lib/jenkins/workspace/NewPipeline/index.html"  
+url = "file:////var/lib/jenkins/workspace/NewPipeline/frontend/index.html"  
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
