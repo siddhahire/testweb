@@ -2,6 +2,22 @@ pipeline {
     agent any
 
     stages {
+        stage('Test') {
+            steps {
+                script {
+                    // Run Python Selenium script
+                    def output = sh(script: 'python3 test_script.py', returnStdout: true).trim()
+                    println "Output of test_script.py: ${output}"
+                    // Check the output to determine the test condition
+                    if (output.contains('Passed')) {
+                        currentBuild.result = 'SUCCESS'
+                    } else {
+                        currentBuild.result = 'FAILURE'
+                    }
+                }
+            }
+        }
+        
   
         stage('Build Docker Images') {
             steps {
